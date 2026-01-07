@@ -14,17 +14,6 @@ export default function MallPage() {
     "Anchor Stores"
   ];
   const storesForWing = (wing) => stores.filter((s) => s.wing === wing);
-  return (
-    <main className="mall">
-      <div className="header">
-        <Link href="/" style={{ fontWeight: 800 }}>Exit</Link>
-        <div style={{ fontWeight: 900, letterSpacing: ".08em" }}>THE MALL</div>
-        <Link href="/food-court" style={{ fontWeight: 800 }}>Food Court</Link>
-      </div>
-
-      <div style={{ margin: "18px 0 30px", fontWeight: 700, opacity: 0.85 }}>
-        Scroll to “walk” the mall. Tap a storefront to open the real site in a new tab.
-      </div>
 return (
   <main className="mall">
     <div className="header">
