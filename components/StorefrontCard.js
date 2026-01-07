@@ -7,17 +7,31 @@ export default function StorefrontCard({ store }) {
     <button
       className="storefront"
       onClick={openStore}
-      style={{ borderColor: store.accentColor, textAlign: "left" }}
+      style={{ textAlign: "left" }}
+      aria-label={`Open ${store.displayName}`}
     >
-      <h3 style={{ margin: "0 0 6px" }}>{store.displayName}</h3>
-      <div style={{ fontSize: 12, opacity: 0.8, fontWeight: 700, marginBottom: 10 }}>
+      <div
+        className="signGlow"
+        style={{
+          background: `radial-gradient(circle at 20% 15%, ${store.accentColor}, transparent 55%)`
+        }}
+      />
+
+      <div className="sign">
+        <span>{store.displayName}</span>
+        <span style={{ fontSize: 12, opacity: 0.75 }}>Enter →</span>
+      </div>
+
+      <div className="meta">
         Inspired by {store.inspiredBy} • {store.category}
       </div>
-      <div style={{ fontSize: 13, opacity: 0.9 }}>
-        {store.windowDisplay}
-      </div>
-      <div style={{ marginTop: 12, fontWeight: 800, fontSize: 12 }}>
-        Tap to enter →
+
+      <div className="window">
+        <div style={{ fontWeight: 850, marginBottom: 6 }}>Window Display</div>
+        <div style={{ fontSize: 13, opacity: 0.9, fontWeight: 650 }}>
+          {store.windowDisplay}
+        </div>
+        <div className="glass" />
       </div>
     </button>
   );
