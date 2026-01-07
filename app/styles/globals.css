@@ -68,3 +68,144 @@ a {
   background: white;
   font-weight: 600;
 }
+/* 2D MALL SKIN */
+.mall {
+  padding: 92px 16px 60px;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* background corridor */
+.mall::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(1200px 550px at 50% 0%, rgba(255,255,255,0.85), transparent 60%),
+    linear-gradient(180deg, rgba(255,192,219,0.28), rgba(200,245,255,0.28));
+}
+
+/* ceiling lights + subtle wall panels */
+.mall::after{
+  content:"";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events:none;
+  background:
+    radial-gradient(16px 16px at 12% 10%, rgba(255,255,255,0.85), rgba(255,255,255,0) 70%),
+    radial-gradient(16px 16px at 30% 9%, rgba(255,255,255,0.75), rgba(255,255,255,0) 70%),
+    radial-gradient(16px 16px at 50% 10%, rgba(255,255,255,0.85), rgba(255,255,255,0) 70%),
+    radial-gradient(16px 16px at 70% 9%, rgba(255,255,255,0.75), rgba(255,255,255,0) 70%),
+    radial-gradient(16px 16px at 88% 10%, rgba(255,255,255,0.85), rgba(255,255,255,0) 70%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,0.08) 0px,
+      rgba(255,255,255,0.08) 52px,
+      rgba(0,0,0,0.02) 52px,
+      rgba(0,0,0,0.02) 104px
+    );
+  opacity: 0.9;
+}
+
+/* sticky nav becomes a kiosk bar */
+.header {
+  position: sticky;
+  top: 10px;
+  z-index: 20;
+  border-radius: 999px;
+  margin: 0 auto 18px;
+  max-width: 980px;
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.55);
+  box-shadow: 0 18px 50px rgba(0,0,0,0.10);
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  padding: 12px 16px;
+}
+
+/* wing title */
+.wing h2{
+  font-size: 22px;
+  letter-spacing: .02em;
+  margin: 34px 0 14px;
+}
+
+/* storefront becomes a shop window */
+.storefront{
+  cursor: pointer;
+  border-radius: 22px;
+  padding: 14px;
+  background: rgba(255,255,255,0.58);
+  border: 2px solid rgba(255,255,255,0.7);
+  box-shadow: 0 18px 55px rgba(0,0,0,0.10);
+  position: relative;
+  overflow: hidden;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+
+.storefront:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 22px 75px rgba(0,0,0,0.14);
+}
+
+.storefront .sign{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-radius: 16px;
+  padding: 10px 12px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  background: rgba(255,255,255,0.65);
+  border: 1px solid rgba(255,255,255,0.75);
+}
+
+.storefront .signGlow{
+  position:absolute;
+  inset:-80px;
+  filter: blur(22px);
+  opacity: .65;
+  pointer-events:none;
+}
+
+.storefront .window{
+  margin-top: 12px;
+  border-radius: 18px;
+  padding: 12px;
+  background: rgba(255,255,255,0.40);
+  border: 1px solid rgba(255,255,255,0.65);
+  position: relative;
+  overflow:hidden;
+}
+
+.storefront .glass{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.45), transparent 45%),
+    linear-gradient(0deg, rgba(0,0,0,0.04), transparent 35%);
+  pointer-events:none;
+}
+
+.storefront .meta{
+  font-size: 12px;
+  opacity: 0.82;
+  font-weight: 800;
+  margin-top: 8px;
+}
+
+.mallProp{
+  margin: 22px 0 10px;
+  border-radius: 22px;
+  background: rgba(255,255,255,0.45);
+  border: 1px solid rgba(255,255,255,0.65);
+  box-shadow: 0 18px 55px rgba(0,0,0,0.08);
+  padding: 16px;
+}
+.mallProp b{ letter-spacing:.04em; }
+.mallProp small{ opacity:.78; font-weight:700; }
