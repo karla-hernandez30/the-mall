@@ -2,30 +2,7 @@
 
 import Link from "next/link";
 import { stores } from "../../data/stores";
-
-function StoreBlock({ store }) {
-  const open = () => window.open(store.url, "_blank", "noopener,noreferrer");
-
-  return (
-    <button
-      className="block"
-      onClick={open}
-      style={{
-        gridColumn: `span ${store.col || 2}`,
-        gridRow: `span ${store.row || 1}`,
-      }}
-      aria-label={`Open ${store.name}`}
-    >
-      <div className="blockFrame">
-        <div className="blockArt" style={{ backgroundImage: `url(${store.art})` }} />
-        <div className="blockLabel">
-          <div className="blockName">{store.name}</div>
-          <div className="blockSub">{store.subtitle}</div>
-        </div>
-      </div>
-    </button>
-  );
-}
+import StoreBlock from "../../components/StoreBlock";
 
 export default function MallPage() {
   return (
@@ -36,10 +13,12 @@ export default function MallPage() {
         <Link href="/food-court" className="navBtn">Food Court</Link>
       </div>
 
-      <div className="dollhouseWrap">
-        <div className="blockWall">
-          {stores.map((s) => <StoreBlock key={s.id} store={s} />)}
-        </div>
+      <div className="hint">Tap any storefront to open the real store.</div>
+
+      <div className="mallGrid">
+        {stores.map((s) => (
+          <StoreBlock key={s.id} store={s} />
+        ))}
       </div>
     </main>
   );
